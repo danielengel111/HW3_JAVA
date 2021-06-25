@@ -10,4 +10,9 @@ public class Unicorn implements Animal
     public void participateInShow() {
 
     }
+
+    @Override
+    public String getName() {
+        return "Unicorn";
+    }
 }

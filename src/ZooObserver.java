@@ -7,5 +7,10 @@ public class ZooObserver
         this.name = name;
     }
 
+    public void update(String message)
+    {
+        System.out.println("[" + name + "] " + message);
+    }
+
     public String getName(){ return this.name; }
 }

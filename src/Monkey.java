@@ -10,4 +10,9 @@ public class Monkey implements Animal
     public void participateInShow() {
 
     }
+
+    @Override
+    public String getName() {
+        return "Monkey";
+    }
 }

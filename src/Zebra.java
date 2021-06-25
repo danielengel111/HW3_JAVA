@@ -7,7 +7,14 @@ public class Zebra implements Animal
     }
 
     @Override
-    public void participateInShow() {
+    public void participateInShow()
+    {
 
+    }
+
+    @Override
+    public String getName()
+    {
+        return "Zebra";
     }
 }
