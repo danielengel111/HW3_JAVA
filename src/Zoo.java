@@ -6,6 +6,7 @@ public class Zoo
     private static Zoo instance = new Zoo();
 
     private ArrayList<ZooObserver> observers;
+    private ArrayList<Animal> animals;
     private  HashMap<String, Integer> dictionary;
     private int hunger;
     private int happiness;
@@ -16,6 +17,7 @@ public class Zoo
         this.happiness = 2;
         this.hunger = 3;
         this.dictionary = new HashMap<>();
+        this.animals = new ArrayList<>();
     }
 
     public static Zoo getInstance()
@@ -38,22 +40,32 @@ public class Zoo
         {
             dictionary.put(animal.getName(), 1);
         }
+        animals.add(animal);
         notifyObservers(animal.getName() + " has been added to the zoo!");
     }
 
     public void feedAnimals()
     {
-        //do something
-        this.hunger--;
-        //do something
+        if(this.hunger > 1)
+            this.hunger--;
+        for(Animal animal: this.animals)
+        {
+            animal.eat();
+        }
+        notifyObservers("The animals are being fed");
     }
 
     public void watchAnimals()
     {
-        //do something
-        this.happiness++;
-        this.hunger++;
-        //do something
+        if(this.happiness < 5)
+            this.happiness++;
+        if(this.hunger < 5)
+            this.hunger++;
+        for(Animal animal: this.animals)
+        {
+            animal.participateInShow();
+        }
+        notifyObservers("The animals are being watched");
     }
 
     public void notifyObservers(String message)
@@ -67,7 +79,7 @@ public class Zoo
 
     public void showAnimalsInfo()
     {
-        System.out.println("The zoo contains total of 100 animals:");
+        System.out.println("The zoo contains total of " + this.animals.size() + " animals:");
         for(String animal_name: this.dictionary.keySet())
         {
             System.out.println("- " + animal_name + ": " + this.dictionary.get(animal_name));

@@ -3,12 +3,13 @@ public class Unicorn implements Animal
     @Override
     public void eat()
     {
-
+        System.out.println("The unicorn is eating rainbow cakes...");
     }
 
     @Override
-    public void participateInShow() {
-
+    public void participateInShow()
+    {
+        System.out.println("The unicorn is flying...");
     }
 
     @Override
