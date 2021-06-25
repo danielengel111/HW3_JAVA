@@ -3,7 +3,7 @@ import java.util.*;
 
 public class Zoo
 {
-    private static Zoo instance = new Zoo();
+    private static Zoo instance = null;
 
     private ArrayList<ZooObserver> observers;
     private ArrayList<Animal> animals;
@@ -22,6 +22,13 @@ public class Zoo
 
     public static Zoo getInstance()
     {
+        if (instance == null)
+        {
+            System.out.println("Creating zoo...");
+            instance = new Zoo();
+            return instance;
+        }
+        System.out.println("The zoo already exists...");
         return instance;
     }
 
