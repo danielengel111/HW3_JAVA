@@ -15,7 +15,10 @@ public class Zoo
         this.hunger = 3;
     }
 
-    public static Zoo getInstance() { return instance; }
+    public static Zoo getInstance()
+    {
+        return instance;
+    }
 
     public void addObserver(ZooObserver observer)
     {
@@ -27,19 +30,35 @@ public class Zoo
 
     }
 
-    public void showAnimalsInfo()
-    {
-
-    }
-
     public void feedAnimals()
     {
-
+        //do something
+        this.hunger--;
+        //do something
     }
 
     public void watchAnimals()
     {
+        //do something
+        this.happiness++;
+        this.hunger++;
+        //do something
+    }
 
+    public void showAnimalsInfo()
+    {
+        if(this.happiness < 3)
+        {
+            System.out.println("The animals are not happy, you should watch them...");
+        }
+        else if(this.happiness > 3)
+        {
+            System.out.println("The animals are very happy, keep working hard...");
+        }
+        if(this.hunger > 3)
+        {
+            System.out.println("The animals are hungry, you should feed them...");
+        }
     }
 
     public void removeObserver(ZooObserver observer)
