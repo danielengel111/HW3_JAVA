@@ -13,4 +13,12 @@ public class ZooObserver
     }
 
     public String getName(){ return this.name; }
+
+    /**
+     * setter fo name attribute
+     * @param name - the new name
+     */
+    public void setName(String name){
+        this.name = name;
+    }
 }

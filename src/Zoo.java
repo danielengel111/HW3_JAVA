@@ -7,7 +7,7 @@ public class Zoo
 
     private ArrayList<ZooObserver> observers;
     private ArrayList<Animal> animals;
-    private  HashMap<String, Integer> dictionary;
+    private HashMap<String, Integer> animalHistogram;
     private int hunger;
     private int happiness;
 
@@ -16,7 +16,7 @@ public class Zoo
         this.observers = new ArrayList<>();
         this.happiness = 2;
         this.hunger = 3;
-        this.dictionary = new HashMap<>();
+        this.animalHistogram = new HashMap<>();
         this.animals = new ArrayList<>();
     }
 
@@ -39,13 +39,14 @@ public class Zoo
 
     public void addAnimal(Animal animal)
     {
-        if(this.dictionary.containsKey(animal.getName()))
+        if(this.animalHistogram.containsKey(animal.getName()))
         {
-            this.dictionary.put(animal.getName(), this.dictionary.get(animal.getName()) + 1);
+            this.animalHistogram.put(animal.getName(),
+                    this.animalHistogram.get(animal.getName()) + 1);
         }
         else
         {
-            dictionary.put(animal.getName(), 1);
+            animalHistogram.put(animal.getName(), 1);
         }
         animals.add(animal);
         notifyObservers(animal.getName() + " has been added to the zoo!");
@@ -86,26 +87,31 @@ public class Zoo
 
     public void showAnimalsInfo()
     {
-        System.out.println("The zoo contains total of " + this.animals.size() + " animals:");
-        for(String animal_name: this.dictionary.keySet())
+        System.out.println("The zoo contains total of " +
+                this.animals.size() + " animals:");
+        for(String animal_name: this.animalHistogram.keySet())
         {
-            System.out.println("- " + animal_name + ": " + this.dictionary.get(animal_name));
+            System.out.println("- " + animal_name + ": " +
+                    this.animalHistogram.get(animal_name));
         }
 
         System.out.println("Happiness level: " + this.happiness);
         if(this.happiness < 3)
         {
-            System.out.println("The animals are not happy, you should watch them...");
+            System.out.println("The animals are not happy, " +
+                    "you should watch them...");
         }
         else if(this.happiness > 3)
         {
-            System.out.println("The animals are very happy, keep working hard...");
+            System.out.println("The animals are very happy, " +
+                    "keep working hard...");
         }
 
         System.out.println("Hunger level: " + this.happiness);
         if(this.hunger > 3)
         {
-            System.out.println("The animals are hungry, you should feed them...");
+            System.out.println("The animals are hungry, " +
+                    "you should feed them...");
         }
     }
 
