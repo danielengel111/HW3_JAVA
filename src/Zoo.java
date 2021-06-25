@@ -21,4 +21,29 @@ public class Zoo
     {
         this.observers.add(observer);
     }
+
+    public void addAnimal(Animal animal)
+    {
+
+    }
+
+    public void showAnimalsInfo()
+    {
+
+    }
+
+    public void feedAnimals()
+    {
+
+    }
+
+    public void watchAnimals()
+    {
+
+    }
+
+    public void removeObserver(ZooObserver observer)
+    {
+        this.observers.remove(observer);
+    }
 }
