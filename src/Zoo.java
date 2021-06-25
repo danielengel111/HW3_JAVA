@@ -107,7 +107,7 @@ public class Zoo
                     "keep working hard...");
         }
 
-        System.out.println("Hunger level: " + this.happiness);
+        System.out.println("Hunger level: " + this.hunger);
         if(this.hunger > 3)
         {
             System.out.println("The animals are hungry, " +
