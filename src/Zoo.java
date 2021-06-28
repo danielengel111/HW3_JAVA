@@ -101,7 +101,7 @@ public class Zoo
             System.out.println("The animals are not happy, " +
                     "you should watch them...");
         }
-        else if(this.happiness > 3)
+        else
         {
             System.out.println("The animals are very happy, " +
                     "keep working hard...");
