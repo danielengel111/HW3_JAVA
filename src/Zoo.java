@@ -11,6 +11,11 @@ public class Zoo
     private int hunger;
     private int happiness;
 
+    /**
+     * initializes class attributes.
+     * private method because we
+     * are using the Singleton design method.
+     */
     private Zoo()
     {
         this.observers = new ArrayList<>();
@@ -20,6 +25,10 @@ public class Zoo
         this.animals = new ArrayList<>();
     }
 
+    /**
+     * return an instance of Zoo
+     * using the Singleton design pattern.
+     */
     public static Zoo getInstance()
     {
         if (instance == null)
@@ -32,11 +41,22 @@ public class Zoo
         return instance;
     }
 
+    /**
+     * add new observer to the list of
+     * observers observing the Zoo subject
+     */
     public void addObserver(ZooObserver observer)
     {
         this.observers.add(observer);
     }
 
+    /**
+     * add new animal to the list of
+     * animals in the Zoo.
+     * increment the amount of animals in the zoo
+     * of the same type of the new animal (using a hash map
+     * that maps animal type to number of those animals in the zoo)
+     */
     public void addAnimal(Animal animal)
     {
         if(this.animalHistogram.containsKey(animal.getName()))
@@ -49,22 +69,35 @@ public class Zoo
             animalHistogram.put(animal.getName(), 1);
         }
         animals.add(animal);
+        //notify observers of the addition
         notifyObservers(animal.getName() + " has been added to the zoo!");
     }
 
+    /**
+     * feed all the animals in the zoo
+     * and decrement the hunger attribute
+     * of the zoo.
+     */
     public void feedAnimals()
     {
+        //keep hunger levels in range
         if(this.hunger > 1)
             this.hunger--;
         for(Animal animal: this.animals)
         {
             animal.eat();
         }
+        //notify observers of the feeding
         notifyObservers("The animals are being fed");
     }
 
+    /**
+     * watch the animals in the zoo
+     * participate in the show.
+     */
     public void watchAnimals()
     {
+        //keep happiness and hunger levels in range
         if(this.happiness < 5)
             this.happiness++;
         if(this.hunger < 5)
@@ -73,9 +106,14 @@ public class Zoo
         {
             animal.participateInShow();
         }
+        //notify observers of the show
         notifyObservers("The animals are being watched");
     }
 
+    /**
+     * send a message to all the observers
+     * of the zoo.
+     */
     public void notifyObservers(String message)
     {
         System.out.println("Notifying observers:");
@@ -85,6 +123,11 @@ public class Zoo
         }
     }
 
+    /**
+     * print info about the zoo and its animals:
+     *  - number of each type
+     *  - happiness and hunger levels
+     */
     public void showAnimalsInfo()
     {
         System.out.println("The zoo contains total of " +
@@ -115,6 +158,10 @@ public class Zoo
         }
     }
 
+    /**
+     * remove an observer from the list of
+     * observers observing the Zoo subject.
+     */
     public void removeObserver(ZooObserver observer)
     {
         this.observers.remove(observer);

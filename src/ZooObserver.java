@@ -2,16 +2,26 @@ public class ZooObserver
 {
     private String name;
 
+    /**
+     * initializes class attributes
+     */
     public ZooObserver(String name)
     {
         this.name = name;
     }
 
+    /**
+     * print a message sent by subject
+     * to this observer
+     */
     public void update(String message)
     {
         System.out.println("[" + name + "] " + message);
     }
 
+    /**
+     * getter fo name attribute
+     */
     public String getName(){ return this.name; }
 
     /**
