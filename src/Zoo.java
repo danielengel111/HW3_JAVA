@@ -132,10 +132,10 @@ public class Zoo
     {
         System.out.println("The zoo contains total of " +
                 this.animals.size() + " animals:");
-        for(String animal_name: this.animalHistogram.keySet())
+        for(String animalName: this.animalHistogram.keySet())
         {
-            System.out.println("- " + animal_name + ": " +
-                    this.animalHistogram.get(animal_name));
+            System.out.println("- " + animalName + ": " +
+                    this.animalHistogram.get(animalName));
         }
 
         System.out.println("Happiness level: " + this.happiness);
