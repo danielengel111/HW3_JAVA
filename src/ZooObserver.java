@@ -20,12 +20,12 @@ public class ZooObserver
     }
 
     /**
-     * getter fo name attribute
+     * getter for name attribute
      */
     public String getName(){ return this.name; }
 
     /**
-     * setter fo name attribute
+     * setter for name attribute
      * @param name - the new name
      */
     public void setName(String name){

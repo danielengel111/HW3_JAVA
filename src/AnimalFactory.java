@@ -1,5 +1,4 @@
-public abstract class AnimalFactory
-{
+public abstract class AnimalFactory {
     /**
      * create and return a new animal instance
      * using the Builder design pattern.
