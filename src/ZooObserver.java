@@ -1,4 +1,4 @@
-public class ZooObserver
+public class ZooObserver implements Observer
 {
     private String name;
 
@@ -14,6 +14,7 @@ public class ZooObserver
      * print a message sent by subject
      * to this observer
      */
+    @Override
     public void update(String message)
     {
         System.out.println("[" + name + "] " + message);

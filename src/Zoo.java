@@ -5,7 +5,7 @@ public class Zoo
 {
     private static Zoo instance = null;
 
-    private ArrayList<ZooObserver> observers;
+    private ArrayList<Observer> observers;
     private ArrayList<Animal> animals;
     private HashMap<String, Integer> animalHistogram;
     private int hunger;
@@ -45,7 +45,7 @@ public class Zoo
      * add new observer to the list of
      * observers observing the Zoo subject
      */
-    public void addObserver(ZooObserver observer)
+    public void addObserver(Observer observer)
     {
         this.observers.add(observer);
     }
@@ -117,7 +117,7 @@ public class Zoo
     public void notifyObservers(String message)
     {
         System.out.println("Notifying observers:");
-        for(ZooObserver observer: observers)
+        for(Observer observer: observers)
         {
             observer.update(message);
         }
@@ -162,7 +162,7 @@ public class Zoo
      * remove an observer from the list of
      * observers observing the Zoo subject.
      */
-    public void removeObserver(ZooObserver observer)
+    public void removeObserver(Observer observer)
     {
         this.observers.remove(observer);
     }
